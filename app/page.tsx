@@ -20,7 +20,7 @@ export default function Home() {
       <div className="relative z-10 max-w-xl mx-auto text-center flex flex-col items-center animate-fade-in">
         {/* 🔍 Transparency Banner */}
         <div className="w-full bg-[#F3F0FF] text-sm text-[#4B3F72] px-4 py-3 rounded-md mb-6 border border-[#E0D7F2] flex items-start gap-2 text-left shadow-sm">
-          <Image src="/icons/info.svg" alt="Info Icon" width={20} height={20} />
+          <span className="text-base">ℹ️</span>
           <span>
             Kritiks are currently based on the artwork type you select — image analysis is coming soon.{' '}
             <Link href="#feedback" className="underline font-medium ml-1">
@@ -53,10 +53,7 @@ export default function Home() {
 
         {/* 🧠 What is kritik.ai */}
         <section className="text-left w-full" id="about">
-          <h2 className="text-2xl font-bold mb-3 flex items-center gap-2">
-            <Image src="/icons/sparkle.svg" alt="Sparkle Icon" width={24} height={24} />
-            What is kritik.ai?
-          </h2>
+          <h2 className="text-2xl font-bold mb-3">✨ What is kritik.ai?</h2>
           <p className="text-gray-700 mb-6">
             <strong>kritik.ai</strong> (pronounced “<em>critic eye</em>”) is an AI-powered companion for emerging artists.
             Today, it analyzes your <strong>artwork type</strong> and <strong>caption</strong> to generate thoughtful critiques.
@@ -64,41 +61,35 @@ export default function Home() {
             training the AI to improve with every submission.
           </p>
 
-          <h2 className="text-2xl font-bold mb-3 flex items-center gap-2">
-            <Image src="/icons/lightbulb.svg" alt="Lightbulb Icon" width={24} height={24} />
-            Why we built it
-          </h2>
+          <h2 className="text-2xl font-bold mb-3">💡 Why we built it</h2>
           <p className="text-gray-700 mb-6">
             Most artists crave feedback — but hate feeling judged. We created <strong>kritik.ai</strong> to offer <strong>non-biased,
             non-judgmental critiques</strong> in a safe, supportive space. It’s designed for <strong>emerging artists</strong>
             (and soon, designers too) who want to <strong>grow with confidence</strong>. No likes. No comments. Just growth.
           </p>
 
-          <h2 className="text-2xl font-bold mb-3 flex items-center gap-2">
-            <Image src="/icons/gear.svg" alt="Gear Icon" width={24} height={24} />
-            How it works
-          </h2>
+          <h2 className="text-2xl font-bold mb-3">🛠️ How it works</h2>
           <p className="text-gray-700 mb-6">
             Here’s the basic flow of using kritik.ai:
           </p>
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-10 text-center">
             <div className="flex flex-col items-center">
-              <Image src="/icons/upload.svg" alt="Upload Icon" width={40} height={40} />
+              <span className="text-4xl">📤</span>
               <p className="mt-2 text-sm">Upload Artwork</p>
             </div>
             <span className="text-xl md:text-3xl">➜</span>
             <div className="flex flex-col items-center">
-              <Image src="/icons/brain.svg" alt="Brain Icon" width={40} height={40} />
+              <span className="text-4xl">🧠</span>
               <p className="mt-2 text-sm">Choose Type & Caption</p>
             </div>
             <span className="text-xl md:text-3xl">➜</span>
             <div className="flex flex-col items-center">
-              <Image src="/icons/ai.svg" alt="AI Icon" width={40} height={40} />
+              <span className="text-4xl">🧬</span>
               <p className="mt-2 text-sm">AI Analyzes</p>
             </div>
             <span className="text-xl md:text-3xl">➜</span>
             <div className="flex flex-col items-center">
-              <Image src="/icons/chat.svg" alt="Chat Icon" width={40} height={40} />
+              <span className="text-4xl">💬</span>
               <p className="mt-2 text-sm">Critique Delivered</p>
             </div>
           </div>
@@ -106,10 +97,7 @@ export default function Home() {
 
         {/* 📲 Where to Get the App */}
         <section className="text-left w-full mt-20" id="download">
-          <h2 className="text-2xl font-bold mb-3 flex items-center gap-2">
-            <Image src="/icons/smartphone.svg" alt="Smartphone Icon" width={24} height={24} />
-            Get the App
-          </h2>
+          <h2 className="text-2xl font-bold mb-3">📲 Get the App</h2>
           <p className="text-gray-700 mb-4">
             kritik.ai will be available soon on both iOS and Android. We’ll update this section with links to download the app once it’s live.
           </p>
@@ -117,10 +105,7 @@ export default function Home() {
 
         {/* 📝 Feedback Section */}
         <section className="text-left w-full mt-20" id="feedback">
-          <h2 className="text-2xl font-bold mb-3 flex items-center gap-2">
-            <Image src="/icons/feedback.svg" alt="Feedback Icon" width={24} height={24} />
-            Share Your Feedback
-          </h2>
+          <h2 className="text-2xl font-bold mb-3">📝 Share Your Feedback</h2>
           <p className="text-gray-700 mb-4">
             We’re still training the AI and improving the experience. Your thoughts matter.
           </p>
@@ -128,10 +113,9 @@ export default function Home() {
             href="https://docs.google.com/forms/d/e/1FAIpQLSe11ZYHzIgzejS3Qwc4oUWgGjJvn3ZdeYsRCoea3IhujaOn2Q/viewform?usp=header"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block mt-2 px-5 py-3 bg-[#4B3F72] text-white font-semibold rounded-lg shadow-md hover:bg-[#3d3460] transition"
+            className="mt-2 px-5 py-3 bg-[#4B3F72] text-white font-semibold rounded-lg shadow-md hover:bg-[#3d3460] transition block w-fit"
           >
-            <Image src="/icons/feedback.svg" alt="Feedback Icon" width={20} height={20} className="inline mr-2 align-text-bottom" />
-            Give Feedback
+            📝 Give Feedback
           </a>
         </section>
 
