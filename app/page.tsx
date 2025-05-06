@@ -42,7 +42,7 @@ export default function Home() {
         </h1>
         <p className="text-base text-gray-700 leading-relaxed mb-6">
           kritik.ai helps artists grow through fast, thoughtful critiques. Upload your work,
-          choose a tone, and receive personalized feedback — all in seconds.
+          choose a type, and receive personalized feedback — all in seconds.
         </p>
         <span className="inline-block bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-semibold mb-6">
           Image-based analysis in progress
@@ -56,7 +56,7 @@ export default function Home() {
           <h2 className="text-2xl font-bold mb-3">✨ What is kritik.ai?</h2>
           <p className="text-gray-700 mb-6">
             <strong>kritik.ai</strong> (pronounced “<em>critic eye</em>”) is an AI-powered companion for emerging artists.
-            Today, it analyzes your <strong>artwork tone</strong> and optional <strong>caption</strong> to generate thoughtful critiques.
+            Today, it analyzes your <strong>artwork type</strong> and <strong>caption</strong> to generate thoughtful critiques.
             In the future, it will be able to <strong>analyze the image itself</strong>, offering even deeper insights. We’re actively
             training the AI to improve with every submission.
           </p>
@@ -74,22 +74,22 @@ export default function Home() {
           </p>
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-10 text-center">
             <div className="flex flex-col items-center">
-              <span className="text-4xl">🖼️</span>
+              <span className="text-4xl">📤</span>
               <p className="mt-2 text-sm">Upload Artwork</p>
             </div>
             <span className="text-xl md:text-3xl">➜</span>
             <div className="flex flex-col items-center">
-              <span className="text-4xl">🎛️</span>
-              <p className="mt-2 text-sm">Choose Tone & Caption</p>
+              <span className="text-4xl">🧠</span>
+              <p className="mt-2 text-sm">Choose Type & Caption</p>
             </div>
             <span className="text-xl md:text-3xl">➜</span>
             <div className="flex flex-col items-center">
-              <span className="text-4xl">🤖</span>
+              <span className="text-4xl">🧬</span>
               <p className="mt-2 text-sm">AI Analyzes</p>
             </div>
             <span className="text-xl md:text-3xl">➜</span>
             <div className="flex flex-col items-center">
-              <span className="text-4xl">📄</span>
+              <span className="text-4xl">💬</span>
               <p className="mt-2 text-sm">Critique Delivered</p>
             </div>
           </div>
