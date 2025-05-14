@@ -1,6 +1,5 @@
 'use client';
 
-
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
@@ -21,17 +20,6 @@ export default function Home() {
       <div className="absolute top-[-100px] -left-20 w-[500px] h-[500px] bg-[#F3F0FF] rounded-full blur-[100px] opacity-60 z-0" />
 
       <div className="relative z-10 max-w-xl mx-auto text-center flex flex-col items-center animate-fade-in">
-        {/* 🔍 Transparency Banner */}
-        <div className="w-full bg-[#F3F0FF] text-sm text-[#4B3F72] px-4 py-3 rounded-md mb-6 border border-[#E0D7F2] flex items-start gap-2 text-left shadow-sm">
-          <span className="text-base">ℹ️</span>
-          <span>
-            Kritiks are currently based on the artwork type you select — image analysis is coming soon.{' '}
-            <Link href="#feedback" className="underline font-semibold ml-1">
-              Help us improve
-            </Link>
-          </span>
-        </div>
-
         {/* 🔥 Hero Section */}
         <motion.div
           whileTap={{ scale: 1.1 }}
@@ -69,10 +57,7 @@ export default function Home() {
         >
           <h2 className="text-2xl font-bold mb-3">🖼️ What is kritik.ai?</h2>
           <p className="text-gray-700 mb-6">
-            <strong>kritik.ai</strong> (pronounced “<em>critic eye</em>”) is an AI-powered companion for emerging artists.
-            Today, it analyzes your <strong>artwork type</strong> and <strong>caption</strong> to generate thoughtful critiques.
-            In the future, it will be able to <strong>analyze the image itself</strong>, offering even deeper insights. We’re actively
-            training the AI to improve with every submission.
+            <strong>kritik.ai</strong> (pronounced “<em>critic eye</em>”) is an AI-powered companion for emerging artists. Using <strong>GPT-4o</strong>, it analyzes your <strong>artwork type</strong> and <strong>caption</strong> to deliver thoughtful, structured critiques — instantly. And thanks to GPT-4o’s <strong>multimodal capabilities</strong>, it’s learning to understand the image itself, opening the door to even deeper, more intuitive feedback. Every submission helps the AI grow smarter.
           </p>
 
           <h2 className="text-2xl font-bold mb-3">💜 Why we built it</h2>
@@ -124,7 +109,6 @@ export default function Home() {
           </p>
           <div className="flex gap-4 mt-4">
             <Image src="/ios-badge.svg" alt="iOS" width={140} height={45} />
-            
           </div>
         </motion.section>
 
