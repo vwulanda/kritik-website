@@ -53,7 +53,7 @@ export default function Home() {
           choose a type, and receive personalized feedback — all in seconds.
         </p>
         <span className="inline-block bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-semibold mb-6">
-          Image-based analysis in progress
+          Powered by AI. Getting smarter with every critique.
         </span>
 
         <hr className="w-32 border-t-2 border-[#E0D7F2] my-12" />
