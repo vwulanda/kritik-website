@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { createClient } from '@supabase/supabase-js';
 
+<<<<<<< HEAD
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 
@@ -14,6 +15,12 @@ if (!supabaseUrl || !supabaseAnonKey) {
 }
 
 const supabase = createClient(supabaseUrl, supabaseAnonKey)
+=======
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+
+const supabase = createClient(supabaseUrl, supabaseAnonKey);
+>>>>>>> enhancements/reset_psw_form_token
 
 export default function ResetPassword() {
   const router = useRouter();
@@ -39,10 +46,16 @@ export default function ResetPassword() {
     e.preventDefault();
     if (!accessToken) return;
 
+<<<<<<< HEAD
     const { error: updateError } = await supabase.auth.updateUser(
       { password: newPassword },
       { accessToken }
     );
+=======
+    const { error: updateError } = await supabase.auth.updateUser({
+      password: newPassword,
+    });
+>>>>>>> enhancements/reset_psw_form_token
 
     if (updateError) {
       setError(updateError.message);
