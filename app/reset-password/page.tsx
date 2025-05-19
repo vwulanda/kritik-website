@@ -1,9 +1,56 @@
 'use client';
 
-import Image from 'next/image';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
+import { createClient } from '@supabase/supabase-js';
+
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+
+if (!supabaseUrl || !supabaseAnonKey) {
+  throw new Error('Missing Supabase environment variables')
+}
+
+const supabase = createClient(supabaseUrl, supabaseAnonKey)
 
 export default function ResetPassword() {
+  const router = useRouter();
+  const [accessToken, setAccessToken] = useState<string | null>(null);
+  const [newPassword, setNewPassword] = useState('');
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const hash = window.location.hash;
+    const match = hash.match(/access_token=([^&]*)/);
+    if (match && match[1]) {
+      const token = match[1];
+      setAccessToken(token);
+    } else {
+      setError('Invalid or missing reset token.');
+    }
+    setLoading(false);
+  }, []);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!accessToken) return;
+
+    const { error: updateError } = await supabase.auth.updateUser(
+      { password: newPassword },
+      { accessToken }
+    );
+
+    if (updateError) {
+      setError(updateError.message);
+    } else {
+      setSubmitted(true);
+    }
+  };
+
   return (
     <main className="relative min-h-screen bg-white text-primary px-6 py-10 overflow-hidden scroll-smooth">
       {/* 🧭 Sticky Top Nav */}
@@ -33,25 +80,45 @@ export default function ResetPassword() {
           />
         </motion.div>
 
-        <h1 className="text-3xl font-extrabold mb-4 text-[#4B3F72]">Reset Password Link Opened</h1>
+        <h1 className="text-3xl font-extrabold mb-4 text-[#4B3F72]">Reset Your Password</h1>
 
-        <p className="text-gray-700 leading-relaxed mb-2">
-          You’ve successfully opened the password reset link.
-        </p>
-        <p className="text-sm text-gray-500 italic">
-          Please return to the app to set a new password — or close this tab if you already did.
-        </p>
+        {loading && <p>Loading...</p>}
 
-        {/* Divider */}
-        <hr className="w-32 border-t-2 border-[#E0D7F2] my-10" />
+        {!loading && !submitted && !error && (
+          <form onSubmit={handleSubmit} className="w-full max-w-md mx-auto">
+            <input
+              type="password"
+              placeholder="Enter new password"
+              className="w-full bg-[#F2F2F2] text-black px-4 py-3 rounded-lg mb-4 focus:outline-none"
+              value={newPassword}
+              onChange={(e) => setNewPassword(e.target.value)}
+              minLength={6}
+              required
+            />
+            <button
+              type="submit"
+              className="w-full bg-[#4B3F72] text-white font-semibold py-3 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5 hover:bg-[#3d3460] transition-all duration-200"
+            >
+              Update Password
+            </button>
+          </form>
+        )}
 
-        {/* Back button */}
-        <a
-          href="/"
-          className="mt-2 px-5 py-3 bg-[#4B3F72] text-white font-semibold rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5 hover:bg-[#3d3460] transition-all duration-200 block"
-        >
-          ⬅ Back to Home
-        </a>
+        {error && (
+          <p className="text-red-500 mt-4">{error}</p>
+        )}
+
+        {submitted && (
+          <div className="mt-6">
+            <p className="text-green-600 font-medium mb-4">Your password has been updated! 🎉</p>
+            <a
+              href="/"
+              className="mt-2 inline-block px-5 py-3 bg-[#4B3F72] text-white font-semibold rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5 hover:bg-[#3d3460] transition-all duration-200"
+            >
+              Return to Home
+            </a>
+          </div>
+        )}
       </div>
     </main>
   );
