@@ -2,13 +2,15 @@
 export const dynamic = 'force-dynamic';
 
 import { useEffect, useState } from 'react';
-import { supabase } from '@/lib/supabase';
+import { getSupabaseClient } from '@/lib/supabase';
 
 export default function DeeplinkRedirectPage() {
   const [status, setStatus] = useState('Verifying your session...');
 
   useEffect(() => {
     const exchange = async () => {
+      const supabase = getSupabaseClient();
+
       try {
         const { data, error } = await supabase.auth.exchangeCodeForSession(window.location.href);
 
@@ -27,7 +29,6 @@ export default function DeeplinkRedirectPage() {
         console.log('Session exchange successful:', data.session);
         setStatus('Success! Redirecting to the app...');
 
-        // ✅ Give Supabase session a brief moment to initialize
         setTimeout(() => {
           window.location.replace('kritik-ai://reset-password');
         }, 1000);
