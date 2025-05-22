@@ -1,5 +1,5 @@
-// kritik-website/lib/supabase.ts
-import { createBrowserClient } from '@supabase/ssr';
+'use client';
+
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 
 export const supabase = createClientComponentClient();
