@@ -1,7 +1,8 @@
 // kritik-website/app/reset/page.tsx
 'use client';
+export const dynamic = 'force-dynamic';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { createClient } from '@supabase/supabase-js';
 
@@ -10,7 +11,7 @@ const supabase = createClient(
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZpeXl1Znlwem9raHVycGtqZGRqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDUzMjgwNjcsImV4cCI6MjA2MDkwNDA2N30.sCpLhULmoHLbSZEAbKNx9NpEODobsZOVQHg2Cdx6oE8'
 );
 
-export default function ResetPasswordPage() {
+function ResetPasswordInner() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const [password, setPassword] = useState('');
@@ -75,5 +76,13 @@ export default function ResetPasswordPage() {
         Update Password
       </button>
     </main>
+  );
+}
+
+export default function ResetPasswordPage() {
+  return (
+    <Suspense fallback={<p className="p-10">Loading...</p>}>
+      <ResetPasswordInner />
+    </Suspense>
   );
 }
