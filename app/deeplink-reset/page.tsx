@@ -12,7 +12,20 @@ export default function DeeplinkRedirectPage() {
       const supabase = getSupabaseClient();
 
       try {
-        const { data, error } = await supabase.auth.exchangeCodeForSession(window.location.href);
+        // If the token is in the hash (e.g. #access_token=...), rebuild full URL manually
+        const currentUrl = window.location.href;
+        const hash = window.location.hash;
+        let fullUrl = currentUrl;
+
+        if (hash && !currentUrl.includes('?')) {
+          const base = currentUrl.split('#')[0];
+          const queryFromHash = hash.replace('#', '?');
+          fullUrl = base + queryFromHash;
+        }
+
+        console.log('[Deeplink Reset] Final URL for exchange:', fullUrl);
+
+        const { data, error } = await supabase.auth.exchangeCodeForSession(fullUrl);
 
         if (error) {
           console.error('Token exchange failed:', error.message);
