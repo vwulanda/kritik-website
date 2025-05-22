@@ -41,7 +41,7 @@ export default function DeeplinkRedirectPage() {
 
         setStatus('Success! Redirecting to the app...');
         setTimeout(() => {
-          window.location.replace('kritik-ai://reset-password');
+          window.location.replace(`kritik-ai://reset-password?access_token=${access_token}&refresh_token=${refresh_token}`);
         }, 1000);
       } catch (err) {
         console.error('Unexpected error during token parsing:', err);
