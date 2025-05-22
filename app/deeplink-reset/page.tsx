@@ -1,16 +1,29 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { supabase } from '@/lib/supabase';
 
 export default function DeeplinkRedirectPage() {
+  const [status, setStatus] = useState('Verifying your session...');
+
   useEffect(() => {
-    const hash = window.location.hash;
-    if (hash) {
-      const target = `kritik-ai://reset-password${hash}`;
-      window.location.replace(target);
-    } else {
-      document.body.innerText = 'Something went wrong. No session found.';
-    }
+    const exchange = async () => {
+      try {
+        const { error } = await supabase.auth.exchangeCodeForSession(window.location.href);
+        if (error) {
+          console.error('Token exchange failed:', error.message);
+          setStatus('Session expired or invalid link.');
+        } else {
+          setStatus('Success! Redirecting to the app...');
+          window.location.replace('kritik-ai://reset-password');
+        }
+      } catch (err) {
+        console.error('Unexpected error:', err);
+        setStatus('Something went wrong while verifying your session.');
+      }
+    };
+
+    exchange();
   }, []);
 
   return (
@@ -22,7 +35,7 @@ export default function DeeplinkRedirectPage() {
         textAlign: 'center',
       }}
     >
-      Redirecting you back to the app…
+      {status}
     </div>
   );
 }
