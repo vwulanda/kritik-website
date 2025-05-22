@@ -8,50 +8,48 @@ export default function DeeplinkRedirectPage() {
   const [status, setStatus] = useState('Verifying your session...');
 
   useEffect(() => {
-    const exchange = async () => {
-      const supabase = getSupabaseClient();
+    const supabase = getSupabaseClient();
 
+    const attemptSessionFromHash = async () => {
       try {
-        // If the token is in the hash (e.g. #access_token=...), rebuild full URL manually
-        const currentUrl = window.location.href;
         const hash = window.location.hash;
-        let fullUrl = currentUrl;
 
-        if (hash && !currentUrl.includes('?')) {
-          const base = currentUrl.split('#')[0];
-          const queryFromHash = hash.replace('#', '?');
-          fullUrl = base + queryFromHash;
+        if (!hash) {
+          setStatus('No session information found.');
+          return;
         }
 
-        console.log('[Deeplink Reset] Final URL for exchange:', fullUrl);
+        const params = new URLSearchParams(hash.replace('#', ''));
+        const access_token = params.get('access_token');
+        const refresh_token = params.get('refresh_token');
 
-        const { data, error } = await supabase.auth.exchangeCodeForSession(fullUrl);
+        if (!access_token || !refresh_token) {
+          setStatus('Missing tokens in URL.');
+          return;
+        }
+
+        const { error } = await supabase.auth.setSession({
+          access_token,
+          refresh_token,
+        });
 
         if (error) {
-          console.error('Token exchange failed:', error.message);
-          setStatus('Session expired or invalid link.');
+          console.error('setSession error:', error.message);
+          setStatus('Session expired or invalid.');
           return;
         }
 
-        if (!data?.session) {
-          console.warn('Token exchange returned no session.');
-          setStatus('Something went wrong. No session returned.');
-          return;
-        }
-
-        console.log('Session exchange successful:', data.session);
         setStatus('Success! Redirecting to the app...');
-
         setTimeout(() => {
           window.location.replace('kritik-ai://reset-password');
         }, 1000);
       } catch (err) {
-        console.error('Unexpected error during session exchange:', err);
+        console.error('Unexpected error during token parsing:', err);
         setStatus('Unexpected error. Please try again.');
       }
     };
 
-    exchange();
+    attemptSessionFromHash();
   }, []);
 
   return (
