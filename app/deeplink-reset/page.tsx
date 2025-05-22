@@ -9,17 +9,30 @@ export default function DeeplinkRedirectPage() {
   useEffect(() => {
     const exchange = async () => {
       try {
-        const { error } = await supabase.auth.exchangeCodeForSession(window.location.href);
+        const { data, error } = await supabase.auth.exchangeCodeForSession(window.location.href);
+
         if (error) {
           console.error('Token exchange failed:', error.message);
           setStatus('Session expired or invalid link.');
-        } else {
-          setStatus('Success! Redirecting to the app...');
-          window.location.replace('kritik-ai://reset-password');
+          return;
         }
+
+        if (!data?.session) {
+          console.warn('Token exchange returned no session.');
+          setStatus('Something went wrong. No session returned.');
+          return;
+        }
+
+        console.log('Session exchange successful:', data.session);
+        setStatus('Success! Redirecting to the app...');
+
+        // ✅ Give Supabase session a brief moment to initialize
+        setTimeout(() => {
+          window.location.replace('kritik-ai://reset-password');
+        }, 1000);
       } catch (err) {
-        console.error('Unexpected error:', err);
-        setStatus('Something went wrong while verifying your session.');
+        console.error('Unexpected error during session exchange:', err);
+        setStatus('Unexpected error. Please try again.');
       }
     };
 
