@@ -1,4 +1,3 @@
-// kritik-website/app/reset/page.tsx
 'use client';
 export const dynamic = 'force-dynamic';
 
@@ -14,75 +13,112 @@ const supabase = createClient(
 function ResetPasswordInner() {
   const searchParams = useSearchParams();
   const router = useRouter();
+
+  const token = searchParams.get('token');
+  const type = searchParams.get('type') || 'recovery';
+
+  const [status, setStatus] = useState<'verifying' | 'ready' | 'error' | 'updating' | 'success'>('verifying');
   const [password, setPassword] = useState('');
   const [confirm, setConfirm] = useState('');
-  const [status, setStatus] = useState<'loading' | 'ready' | 'success' | 'error'>('loading');
-
-  const access_token = searchParams.get('access_token');
-  const refresh_token = searchParams.get('refresh_token');
+  const [errorMsg, setErrorMsg] = useState('');
 
   useEffect(() => {
-    const exchange = async () => {
-      if (!access_token || !refresh_token) {
+    const verifyToken = async () => {
+      if (!token) {
         setStatus('error');
+        setErrorMsg('Missing token in URL.');
         return;
       }
-      const { error } = await supabase.auth.setSession({ access_token, refresh_token });
+
+      const { error } = await supabase.auth.verifyOtp({
+        type: 'recovery',
+        token,
+      } as Parameters<typeof supabase.auth.verifyOtp>[0]); // ✅ Safe TS cast
+
       if (error) {
+        console.error('OTP verification failed:', error.message);
         setStatus('error');
+        setErrorMsg(error.message);
       } else {
         setStatus('ready');
       }
     };
-    exchange();
-  }, [access_token, refresh_token]);
+
+    verifyToken();
+  }, [token, type]);
 
   const handleUpdate = async () => {
-    if (!password || password.length < 6 || password !== confirm) return;
+    if (!password || password.length < 6 || password !== confirm) {
+      setErrorMsg('Passwords must match and be at least 6 characters.');
+      return;
+    }
+
+    setStatus('updating');
+
     const { error } = await supabase.auth.updateUser({ password });
+
     if (error) {
-      alert('Error: ' + error.message);
+      setErrorMsg(error.message);
+      setStatus('ready');
     } else {
       setStatus('success');
     }
   };
 
-  if (status === 'loading') return <p className="p-10">Verifying token...</p>;
-  if (status === 'error') return <p className="p-10 text-red-500">Invalid or expired token.</p>;
-  <main className="p-10 text-center">
-  <p className="text-green-700 font-semibold mb-2">✅ Password updated successfully!</p>
-  <p className="text-sm text-gray-600">You can now return to the kritik.ai app and log in with your new password.</p>
-  <a
-    href="kritik-ai://auth"
-    className="mt-6 inline-block text-purple-700 underline text-sm"
-  >
-    Open the App
-  </a>
-</main>
+  if (status === 'verifying') {
+    return <p className="p-10">Verifying reset token...</p>;
+  }
+
+  if (status === 'error') {
+    return (
+      <main className="min-h-screen flex flex-col items-center justify-center p-6 text-center">
+        <p className="text-red-500 text-lg font-semibold mb-2">⚠️ Reset link is invalid or has expired.</p>
+        <p className="text-sm text-gray-600">Please request a new reset link or contact us at <a href="mailto:support@kritik.ai" className="underline">support@kritik.ai</a>.</p>
+      </main>
+    );
+  }
+
+  if (status === 'success') {
+    return (
+      <main className="min-h-screen flex flex-col items-center justify-center p-6 text-center">
+        <p className="text-green-700 text-lg font-semibold mb-2">✅ Password updated successfully!</p>
+        <p className="text-sm text-gray-600">You can now return to the kritik.ai app and log in.</p>
+        <a
+          href="kritik-ai://auth"
+          className="mt-6 text-purple-700 underline text-sm"
+        >
+          Open the App
+        </a>
+      </main>
+    );
+  }
 
   return (
     <main className="min-h-screen flex flex-col items-center justify-center p-6">
       <h1 className="text-2xl font-bold mb-4">Reset Your Password</h1>
+
+      {errorMsg && <p className="text-red-500 text-sm mb-4">{errorMsg}</p>}
+
       <input
         type="password"
         placeholder="New password"
-        className="border p-2 rounded mb-2"
+        className="border p-2 rounded mb-2 w-full max-w-sm"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
       <input
         type="password"
         placeholder="Confirm password"
-        className="border p-2 rounded mb-4"
+        className="border p-2 rounded mb-4 w-full max-w-sm"
         value={confirm}
         onChange={(e) => setConfirm(e.target.value)}
       />
       <button
         onClick={handleUpdate}
+        disabled={status === 'updating'}
         className="bg-purple-700 text-white px-4 py-2 rounded disabled:opacity-50"
-        disabled={password.length < 6 || password !== confirm}
       >
-        Update Password
+        {status === 'updating' ? 'Updating...' : 'Update Password'}
       </button>
     </main>
   );
