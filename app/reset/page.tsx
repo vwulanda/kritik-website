@@ -49,7 +49,16 @@ function ResetPasswordInner() {
 
   if (status === 'loading') return <p className="p-10">Verifying token...</p>;
   if (status === 'error') return <p className="p-10 text-red-500">Invalid or expired token.</p>;
-  if (status === 'success') return <p className="p-10">✅ Password updated! You can now return to the kritik.ai app and log in.</p>;
+  <main className="p-10 text-center">
+  <p className="text-green-700 font-semibold mb-2">✅ Password updated successfully!</p>
+  <p className="text-sm text-gray-600">You can now return to the kritik.ai app and log in with your new password.</p>
+  <a
+    href="kritik-ai://auth"
+    className="mt-6 inline-block text-purple-700 underline text-sm"
+  >
+    Open the App
+  </a>
+</main>
 
   return (
     <main className="min-h-screen flex flex-col items-center justify-center p-6">
