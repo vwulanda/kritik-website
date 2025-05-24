@@ -26,7 +26,7 @@ export default function Home() {
           transition={{ type: 'spring', stiffness: 300 }}
         >
           <Image
-            src="/logo.png"
+            src="/logo_transparent.png"
             alt="kritik.ai logo"
             width={120}
             height={120}
