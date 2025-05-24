@@ -17,7 +17,7 @@ export default function Home() {
       <div className="h-16" />
 
       {/* 🫧 Background blob */}
-      <div className="absolute top-[-100px] -left-20 w-[500px] h-[500px] bg-[#F3F0FF] rounded-full blur-[100px] opacity-60 z-0" />
+      {/* <div className="absolute top-[-100px] -left-20 w-[500px] h-[500px] bg-[#F3F0FF] rounded-full blur-[100px] opacity-60 z-0" />  */}
 
       <div className="relative z-10 max-w-xl mx-auto text-center flex flex-col items-center animate-fade-in">
         {/* 🔥 Hero Section */}
@@ -26,7 +26,7 @@ export default function Home() {
           transition={{ type: 'spring', stiffness: 300 }}
         >
           <Image
-            src="/logo_transparent.png"
+            src="/logo.png"
             alt="kritik.ai logo"
             width={120}
             height={120}

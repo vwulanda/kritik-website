@@ -16,7 +16,7 @@ export default function EmailConfirmed() {
       <div className="h-16" />
 
       {/* 🫧 Background blob */}
-      <div className="absolute top-[-100px] -left-20 w-[500px] h-[500px] bg-[#F3F0FF] rounded-full blur-[100px] opacity-60 z-0" />
+      {/* <div className="absolute top-[-100px] -left-20 w-[500px] h-[500px] bg-[#F3F0FF] rounded-full blur-[100px] opacity-60 z-0" /> */}
 
       <div className="relative z-10 max-w-xl mx-auto text-center flex flex-col items-center animate-fade-in">
         {/* 🔥 Logo */}
