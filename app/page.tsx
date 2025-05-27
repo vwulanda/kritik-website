@@ -60,14 +60,14 @@ export default function Home() {
             <strong>kritik.ai</strong> (pronounced “<em>critic eye</em>”) is an AI-powered companion for emerging artists. Using <strong>GPT-4o</strong>, it analyzes your <strong>artwork type</strong> and <strong>caption</strong> to deliver thoughtful, structured critiques — instantly. And thanks to GPT-4o’s <strong>multimodal capabilities</strong>, it’s learning to understand the image itself, opening the door to even deeper, more intuitive feedback. Every submission helps the AI grow smarter.
           </p>
 
-          <h2 className="text-2xl font-bold mb-3">💜 Why we built it</h2>
+          <h2 className="text-2xl font-bold mb-3 mt-20">💜 Why we built it</h2>
           <p className="text-gray-700 mb-6">
             Most artists crave feedback — but hate feeling judged. We created <strong>kritik.ai</strong> to offer <strong>non-biased,
             non-judgmental critiques</strong> in a safe, supportive space. It’s designed for <strong>emerging artists</strong>
             (and soon, designers too) who want to <strong>grow with confidence</strong>. No likes. No comments. Just growth.
           </p>
 
-          <h2 className="text-2xl font-bold mb-3">🧩 How it works</h2>
+          <h2 className="text-2xl font-bold mb-3 mt-20">🧩 How it works</h2>
           <p className="text-gray-700 mb-6">
             Here’s the basic flow of using kritik.ai:
           </p>
@@ -93,6 +93,53 @@ export default function Home() {
             </div>
           </div>
         </motion.section>
+
+        {/* ✍️ Artist Pain Section */}
+<motion.section
+  className="text-left w-full mt-20"
+  id="struggles"
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.5 }}
+  viewport={{ once: true }}
+>
+  <h2 className="text-2xl font-bold mb-3">✍️ Looking for Honest Feedback on Your Art?</h2>
+  <p className="text-gray-700 mb-6">
+    Getting better at art takes more than just practice — it takes perspective. But asking for feedback isn’t always easy.
+    Maybe you’ve posted on Reddit and got silence. Or shared your work with friends who said, “It looks great!” — but you’re still not sure what <em>actually</em> works or what needs improvement.
+  </p>
+  <p className="text-gray-700 mb-6">
+    At <strong>kritik.ai</strong>, we get it. That’s why we built a tool that gives you <strong>constructive, judgment-free feedback</strong> — fast.
+    Whether you're a hobbyist, student, or pro, our AI critique helps you see your work with fresh eyes — so you can grow with every piece you make.
+  </p>
+  <p className="italic text-[#4B3F72] font-semibold">You're not just making art — you're building a voice. Let us help you refine it.</p>
+</motion.section>
+
+{/* 🤖 Unique Value Section */}
+<motion.section
+  className="text-left w-full mt-20"
+  id="ai-critique"
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.5 }}
+  viewport={{ once: true }}
+>
+  <h2 className="text-2xl font-bold mb-3">🤖 What Makes Our AI Art Critique Different?</h2>
+  <p className="text-gray-700 mb-6">
+    <strong>kritik.ai</strong> isn’t just another AI toy or one-line generator. It’s a structured feedback system built for artists who want to improve.
+    Powered by GPT-4o, our tool analyzes your artwork type, style, and caption to deliver a critique across <strong>three dimensions</strong>:
+  </p>
+  <ul className="list-disc pl-6 text-gray-700 mb-6">
+    <li><strong>Summary</strong> – What stands out and why</li>
+    <li><strong>Technique</strong> – Highlights and areas to strengthen</li>
+    <li><strong>Context</strong> – How your piece fits into larger artistic trends</li>
+  </ul>
+  <p className="text-gray-700 mb-6">
+    The tone is up to you — go gentle, go honest, or go all in.
+    We're training our model with every submission to become more helpful, more insightful, and more aligned with what real artists need.
+  </p>
+  <p className="italic text-[#4B3F72] font-semibold">No fluff, no judgment. Just feedback you can build on.</p>
+</motion.section>
 
         {/* 🚀 Where to Get the App */}
         <motion.section
