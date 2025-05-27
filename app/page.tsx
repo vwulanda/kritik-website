@@ -152,7 +152,7 @@ export default function Home() {
         >
           <h2 className="text-2xl font-bold mb-3">🚀 Get the App</h2>
           <p className="text-gray-700 mb-4">
-            kritik.ai will be available soon on both iOS and Android. We’ll update this section with links to download the app once it’s live.
+            kritik.ai will be available soon on iOS. We’ll update this section with links to download the app once it’s live.
           </p>
           <div className="flex gap-4 mt-4">
             <Image src="/ios-badge.svg" alt="iOS" width={140} height={45} />
