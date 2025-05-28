@@ -21,7 +21,7 @@ export default function PrivacyPage() {
         </p>
 
         <p>
-          Have questions or feedback? Reach out anytime at <a href="mailto:hello@kritik.ai" className="underline">hello@kritik.ai</a>.
+          Have questions or feedback? Reach out anytime at <a href="mailto:info@kritik.ai" className="underline">info@kritik.ai</a>.
         </p>
 
         <Link href="/" className="inline-block mt-6 text-[#4B3F72] underline">

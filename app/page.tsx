@@ -184,7 +184,7 @@ export default function Home() {
 
         {/* 📬 Footer */}
         <footer className="text-center text-sm text-[#777] mt-20 pt-10 border-t border-gray-200 w-full pb-10">
-  Built with 💜 by artists, for artists. <br />
+  Built with 💜 by artists, for artists.<br />
   Contact us at <a href="mailto:info@kritik.ai" className="underline text-[#4B3F72]">info@kritik.ai</a> <br />
   <Link href="/privacy" className="underline text-[#4B3F72] mt-2 inline-block">
     Privacy & Disclaimer
