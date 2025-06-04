@@ -15,6 +15,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "kritik.ai",
   description: "AI-powered critiques for artists",
+  other: {
+    "google-site-verification": "oDFrGAqO1tHWsCZWGUZFBpAYC_X62e88fMbQlHC44yM",
+    // You can include debug-check if you want to test again:
+    // "debug-check": "vivi-confirmed"
+  },
 };
 
 export default function RootLayout({
@@ -24,9 +29,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <head>
-        <link rel="icon" href="/favicon.ico" />
-      </head>
       <body className="min-h-screen bg-white text-primary font-sans antialiased">
         {children}
       </body>
