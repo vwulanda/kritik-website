@@ -43,6 +43,11 @@ export default function BlogIndex() {
           <p className="text-sm text-gray-600">Understand what separates helpful critique from vague comments.</p>
         </li>
       </ul>
+      <div className="mt-12 text-center">
+  <Link href="/" className="text-sm text-[#4B3F72] underline hover:text-[#3c2f5f]">
+    ← Back to Home
+  </Link>
+</div>
     </main>
   );
 }
