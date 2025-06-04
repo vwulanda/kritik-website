@@ -12,6 +12,7 @@ export default function Home() {
         <a href="#about" className="hover:underline">About</a>
         <a href="#download" className="hover:underline">Get the App</a>
         <a href="#feedback" className="hover:underline">Feedback</a>
+        <Link href="/blog" className="hover:underline">Blog</Link>
       </nav>
 
       <div className="h-16" />
