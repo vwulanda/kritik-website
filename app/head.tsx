@@ -4,6 +4,9 @@ export default function Head() {
         <title>kritik.ai – AI Art Feedback</title>
         <meta name="description" content="Refine. Rethink. Rise. Get fast, personalized critiques to grow as an artist." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        {/* ✅ Google Site Verification */}
+      <meta name="google-site-verification" content="oDFrGAqO1tHWsCZWGUZFBpAYC_X62e88fMbQlHC44yM" />
   
         {/* Open Graph for link previews */}
         <meta property="og:title" content="kritik.ai – AI Art Feedback" />
