@@ -4,6 +4,8 @@ export async function generateStaticParams() {
   ];
 }
 
+type Props = { params: { slug: string } };
+
 export default function BlogPost({ params }: { params: { slug: string } }) {
   if (params.slug !== 'how-can-I-grow-as-an-artist') {
     return <div className="p-6 text-gray-700">Post not found.</div>;
