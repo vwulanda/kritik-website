@@ -1,4 +1,4 @@
-/*export default function Head() {
+export default function Head() {
   return (
     <>
       <title>How Can I Grow as an Artist Without Going to Art School? – kritik.ai</title>
@@ -32,4 +32,4 @@
       />
     </>
   );
-}*/
+}
