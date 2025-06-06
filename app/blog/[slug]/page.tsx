@@ -54,7 +54,7 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
       <div className="mt-10 border-t pt-6 text-center">
         <p className="mb-2 font-medium">Ready to level up your art?</p>
         <a
-          href="https://apps.apple.com/app/idXXXXXXXXXX"
+  href="https://apps.apple.com/us/app/kritik-ai/id6745596097"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-block bg-[#4B3F72] text-white py-2 px-4 rounded-lg shadow-md hover:bg-[#3c2f5f] transition-all"
