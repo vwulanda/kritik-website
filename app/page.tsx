@@ -143,22 +143,28 @@ export default function Home() {
 </motion.section>
 
         {/* 🚀 Where to Get the App */}
-        <motion.section
-          className="text-left w-full mt-20"
-          id="download"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-2xl font-bold mb-3">🚀 Get the App</h2>
-          <p className="text-gray-700 mb-4">
-            kritik.ai will be available soon on iOS. We’ll update this section with links to download the app once it’s live.
-          </p>
-          <div className="flex gap-4 mt-4">
-            <Image src="/ios-badge.svg" alt="iOS" width={140} height={45} />
-          </div>
-        </motion.section>
+<motion.section
+  className="text-left w-full mt-20"
+  id="download"
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.5 }}
+  viewport={{ once: true }}
+>
+  <h2 className="text-2xl font-bold mb-3">🚀 Get the App</h2>
+  <p className="text-gray-700 mb-4">
+    kritik.ai is now available on the App Store for iPhone.
+  </p>
+  <div className="flex gap-4 mt-4">
+    <a
+      href="https://apps.apple.com/us/app/kritik-ai/id6745596097"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <Image src="/ios-badge.svg" alt="Download on the App Store" width={140} height={45} />
+    </a>
+  </div>
+</motion.section>
 
         {/* 📣 Feedback Section */}
         <motion.section
