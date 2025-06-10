@@ -18,18 +18,19 @@ export default function BlogIndex() {
           </Link>
           <p className="text-sm text-gray-600">Tips for self-taught artists looking to grow without formal training.</p>
         </li>
+               <li>
+          <Link href="/blog/how-to-get-honest-feedback" className="text-xl text-[#4B3F72] font-semibold hover:underline">
+            How to Get Honest Feedback on Your Art (Without Judgment)
+          </Link>
+          <p className="text-sm text-gray-600">A guide to getting real, helpful feedback — minus the harsh vibes.</p>
+        </li>
         <li>
           <Link href="/blog/ai-feedback-for-artists" className="text-xl text-[#4B3F72] font-semibold hover:underline">
             AI Feedback for Artists: Helpful or Harmful?
           </Link>
           <p className="text-sm text-gray-600">The pros and cons of getting art critique from AI.</p>
         </li>
-        <li>
-          <Link href="/blog/how-to-get-honest-feedback" className="text-xl text-[#4B3F72] font-semibold hover:underline">
-            How to Get Honest Feedback on Your Art (Without Judgment)
-          </Link>
-          <p className="text-sm text-gray-600">A guide to getting real, helpful feedback — minus the harsh vibes.</p>
-        </li>
+ 
         <li>
           <Link href="/blog/anonymous-art-feedback" className="text-xl text-[#4B3F72] font-semibold hover:underline">
             Where Can I Share My Art Anonymously for Feedback?
