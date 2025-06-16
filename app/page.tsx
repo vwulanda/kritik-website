@@ -58,7 +58,7 @@ export default function Home() {
         >
           <h2 className="text-2xl font-bold mb-3">🖼️ What is kritik.ai?</h2>
           <p className="text-gray-700 mb-6">
-            <strong>kritik.ai</strong> (pronounced “<em>critic eye</em>”) is an AI-powered companion for emerging artists. Using <strong>GPT-4o</strong>, it analyzes your <strong>artwork type</strong> and <strong>caption</strong> to deliver thoughtful, structured critiques — instantly. And thanks to GPT-4o’s <strong>multimodal capabilities</strong>, it’s learning to understand the image itself, opening the door to even deeper, more intuitive feedback. Every submission helps the AI grow smarter.
+            <strong>kritik.ai</strong> (pronounced “<em>critique eye</em>”) is an AI-powered companion for emerging artists. Using <strong>GPT-4o</strong>, it analyzes your <strong>artwork type</strong> and <strong>caption</strong> to deliver thoughtful, structured critiques — instantly. And thanks to GPT-4o’s <strong>multimodal capabilities</strong>, it’s learning to understand the image itself, opening the door to even deeper, more intuitive feedback. Every submission helps the AI grow smarter.
           </p>
 
           <h2 className="text-2xl font-bold mb-3 mt-20">💜 Why we built it</h2>
