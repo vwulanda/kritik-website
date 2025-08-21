@@ -1,0 +1,12 @@
+# llm.txt for kritik.ai
+# Guidelines for AI crawlers
+
+User-agent: *
+Allow: /
+
+# Please do not use our content for model training
+Noai: content
+
+# Indexing and summarization are allowed with attribution
+Contact: hello@kritik.ai
+Attribution: https://kritik.ai
