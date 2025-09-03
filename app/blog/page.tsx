@@ -12,43 +12,86 @@ export default function BlogIndex() {
       </p>
 
       <ul className="space-y-6">
+        {/* Newest post first */}
         <li>
-          <Link href="/blog/how-can-I-grow-as-an-artist" className="text-xl text-[#4B3F72] font-semibold hover:underline">
+          <Link
+            href="/blog/two-ais-are-better-than-one"
+            className="text-xl text-[#4B3F72] font-semibold hover:underline"
+          >
+            Two AIs Are Better Than One: How kritik.ai Double-Checks Every Critique
+          </Link>
+          <p className="text-sm text-gray-600">
+            Why kritik.ai uses a Writer AI and a Reviewer AI — to keep your critique structured,
+            reliable, and never lazy.
+          </p>
+        </li>
+
+        <li>
+          <Link
+            href="/blog/how-can-I-grow-as-an-artist"
+            className="text-xl text-[#4B3F72] font-semibold hover:underline"
+          >
             How Can I Grow as an Artist Without Going to Art School?
           </Link>
-          <p className="text-sm text-gray-600">Tips for self-taught artists looking to grow without formal training.</p>
+          <p className="text-sm text-gray-600">
+            Tips for self-taught artists looking to grow without formal training.
+          </p>
         </li>
-               <li>
-          <Link href="/blog/how-to-get-honest-feedback" className="text-xl text-[#4B3F72] font-semibold hover:underline">
+
+        <li>
+          <Link
+            href="/blog/how-to-get-honest-feedback"
+            className="text-xl text-[#4B3F72] font-semibold hover:underline"
+          >
             How to Get Honest Feedback on Your Art (Without Judgment)
           </Link>
-          <p className="text-sm text-gray-600">A guide to getting real, helpful feedback — minus the harsh vibes.</p>
+          <p className="text-sm text-gray-600">
+            A guide to getting real, helpful feedback — minus the harsh vibes.
+          </p>
         </li>
+
         <li>
-          <Link href="/blog/ai-feedback-for-artists" className="text-xl text-[#4B3F72] font-semibold hover:underline">
+          <Link
+            href="/blog/ai-feedback-for-artists"
+            className="text-xl text-[#4B3F72] font-semibold hover:underline"
+          >
             AI Feedback for Artists: Helpful or Harmful?
           </Link>
-          <p className="text-sm text-gray-600">The pros and cons of getting art critique from AI.</p>
+          <p className="text-sm text-gray-600">
+            The pros and cons of getting art critique from AI.
+          </p>
         </li>
- 
+
         <li>
-          <Link href="/blog/anonymous-art-feedback" className="text-xl text-[#4B3F72] font-semibold hover:underline">
+          <Link
+            href="/blog/anonymous-art-feedback"
+            className="text-xl text-[#4B3F72] font-semibold hover:underline"
+          >
             Where Can I Share My Art Anonymously for Feedback?
           </Link>
-          <p className="text-sm text-gray-600">Best platforms for safe, judgment-free art critique — including kritik.ai.</p>
+          <p className="text-sm text-gray-600">
+            Best platforms for safe, judgment-free art critique — including kritik.ai.
+          </p>
         </li>
+
         <li>
-          <Link href="/blog/what-makes-a-great-art-critique" className="text-xl text-[#4B3F72] font-semibold hover:underline">
-            What Makes a Great Art Critique? A Beginner’s Guide
+          <Link
+            href="/blog/what-makes-a-great-art-critique"
+            className="text-xl text-[#4B3F72] font-semibold hover:underline"
+          >
+            What Makes a Great Art Critique? A Beginner's Guide
           </Link>
-          <p className="text-sm text-gray-600">Understand what separates helpful critique from vague comments.</p>
+          <p className="text-sm text-gray-600">
+            Understand what separates helpful critique from vague comments.
+          </p>
         </li>
       </ul>
+
       <div className="mt-12 text-center">
-  <Link href="/" className="text-sm text-[#4B3F72] underline hover:text-[#3c2f5f]">
-    ← Back to Home
-  </Link>
-</div>
+        <Link href="/" className="text-sm text-[#4B3F72] underline hover:text-[#3c2f5f]">
+          ← Back to Home
+        </Link>
+      </div>
     </main>
   );
 }
