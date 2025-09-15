@@ -15,6 +15,19 @@ export default function BlogIndex() {
         {/* Newest post first */}
         <li>
           <Link
+            href="/blog/new-artist-references"
+            className="text-xl text-[#4B3F72] font-semibold hover:underline"
+          >
+            Who Does Your Art Resonate With? New Artist References in kritik.ai
+          </Link>
+          <p className="text-sm text-gray-600">
+            Discover how kritik.ai connects your work with well-known artists and gives you concrete
+            "How to Get Closer" tips.
+          </p>
+        </li>
+
+        <li>
+          <Link
             href="/blog/two-ais-are-better-than-one"
             className="text-xl text-[#4B3F72] font-semibold hover:underline"
           >
